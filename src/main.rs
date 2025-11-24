@@ -1,11 +1,23 @@
-use clap::{Parser, ValueEnum};
+use clap::{Args, Parser, Subcommand, ValueEnum};
 mod coc6;
 
 #[derive(Parser)]
 struct Cli {
+    #[command(subcommand)]
+    command: Command,
+}
+
+#[derive(Subcommand)]
+enum Command {
+    NewChar(NewCharArgs),
+}
+
+#[derive(Args)]
+struct NewCharArgs {
     #[arg(short, long, default_value = "coc6")]
     rule: Rule,
 }
+
 #[derive(Debug, Clone, ValueEnum)]
 enum Rule {
     Coc6,
@@ -13,8 +25,14 @@ enum Rule {
 }
 
 fn main() {
-    let args = Cli::parse();
+    let cli = Cli::parse();
 
+    match cli.command {
+        Command::NewChar(args) => run_new_char(args),
+    }
+}
+
+fn run_new_char(args: NewCharArgs) {
     match args.rule {
         Rule::Coc6 => run_coc6(),
         Rule::Coc7 => todo!(),
