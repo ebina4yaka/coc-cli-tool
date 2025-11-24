@@ -1,5 +1,5 @@
 [package]
-name = "trpg-stat-tool"
+name = "coc-cli-tool"
 version = "0.1.0"
 edition = "2024"
 
