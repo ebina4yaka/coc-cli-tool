@@ -9,6 +9,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
+    #[command(about = "Create a new character sheet")]
     NewChar(NewCharArgs),
 }
 
