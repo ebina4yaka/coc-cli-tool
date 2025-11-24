@@ -9,12 +9,12 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
-    #[command(about = "Create a new character sheet")]
-    NewChar(NewCharArgs),
+    #[command(about = "Create a character sheet")]
+    Char(CharArgs),
 }
 
 #[derive(Args)]
-struct NewCharArgs {
+struct CharArgs {
     #[arg(short, long, default_value = "coc6")]
     rule: Rule,
 }
@@ -29,11 +29,11 @@ fn main() {
     let cli = Cli::parse();
 
     match cli.command {
-        Command::NewChar(args) => run_new_char(args),
+        Command::Char(args) => run_new_char(args),
     }
 }
 
-fn run_new_char(args: NewCharArgs) {
+fn run_new_char(args: CharArgs) {
     match args.rule {
         Rule::Coc6 => run_coc6(),
         Rule::Coc7 => todo!(),
