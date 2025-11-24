@@ -1,4 +1,3 @@
-// Call of Cthulhu 6th Edition Status Management
 use crate::dice::Dice;
 
 #[derive(Copy, Clone)]
