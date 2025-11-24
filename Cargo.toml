@@ -1,7 +1,10 @@
 [package]
 name = "cocli"
+license = "MIT OR Apache-2.0"
 version = "0.1.0"
 edition = "2024"
+authors = ["shunsuke takii <ebina4yaka@protonmail.com>"]
+description = "A command line tool for generating Call Of Cthulhu RPG character stats."
 
 [dependencies]
 clap = {version = "4.5.53", features = ["derive"]}
