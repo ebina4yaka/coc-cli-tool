@@ -1,5 +1,7 @@
 use clap::{Args, Parser, Subcommand, ValueEnum};
+
 mod coc6;
+mod dice;
 
 #[derive(Parser)]
 struct Cli {
